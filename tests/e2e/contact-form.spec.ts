@@ -26,6 +26,8 @@ test.describe('Contact Section and Form', () => {
   });
 
   test('should display "The journey doesn\'t end here" quote', async ({ page }) => {
+    // Wait for whileInView animation to trigger
+    await page.waitForTimeout(1000);
     await verifyQuote(page, "The journey doesn't end here");
   });
 

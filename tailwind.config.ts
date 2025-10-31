@@ -12,7 +12,7 @@ export default {
         gondor: {
           dark: '#1a1a1a',      // Primary background
           stone: '#2a2a2a',      // Secondary background
-          silver: '#e5e7eb',     // Primary text
+          silver: '#eeeff1',     // Primary text (updated for WCAG 2.1 AA contrast)
           gold: '#d4af37',       // Accent color
           white: '#f9fafb',      // Headings
         },
