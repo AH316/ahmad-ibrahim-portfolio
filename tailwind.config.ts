@@ -13,7 +13,7 @@ export default {
           dark: '#1a1a1a',      // Primary background
           stone: '#2a2a2a',      // Secondary background
           silver: '#eeeff1',     // Primary text (updated for WCAG 2.1 AA contrast)
-          gold: '#d4af37',       // Accent color
+          gold: '#d6b13a',       // Accent color (lightened for better contrast)
           white: '#f9fafb',      // Headings
         },
       },
