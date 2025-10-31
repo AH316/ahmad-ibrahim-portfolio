@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth overflow-x-hidden">
       <body
         className={`${cinzel.variable} ${inter.variable} font-inter antialiased bg-gondor-dark text-gondor-silver overflow-x-hidden`}
       >
