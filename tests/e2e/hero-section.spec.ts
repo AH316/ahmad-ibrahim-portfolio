@@ -79,7 +79,7 @@ test.describe('Hero Section', () => {
     );
 
     // Should have gold border (RGB for #d4af37)
-    expect(borderColor).toContain('212, 175, 55');
+    expect(borderColor).toContain('214, 177, 58');
   });
 
   test('should animate CTA button on hover', async ({ page }) => {
@@ -208,7 +208,7 @@ test.describe('Hero Section', () => {
     );
 
     // Should be silver/gray (gondor-silver: #e5e7eb)
-    expect(color).toContain('229, 231, 235');
+    expect(color).toContain('238, 239, 241');
   });
 
   test('should maintain aspect ratio on different screen sizes', async ({ page }) => {

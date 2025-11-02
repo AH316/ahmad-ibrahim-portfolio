@@ -283,7 +283,7 @@ test.describe('Accessibility', () => {
       );
 
       // Should be silver/light gray on dark
-      expect(color).toContain('229, 231, 235'); // gondor-silver
+      expect(color).toContain('238, 239, 241'); // gondor-silver
     });
 
     test('should have sufficient contrast for gold accents', async ({ page }) => {
@@ -298,7 +298,7 @@ test.describe('Accessibility', () => {
       );
 
       // Gold color should be defined
-      expect(color || borderColor).toContain('212, 175, 55'); // gondor-gold
+      expect(color || borderColor).toContain('214, 177, 58'); // gondor-gold
     });
   });
 

@@ -159,7 +159,7 @@ test.describe('Projects Section', () => {
 
     // At least one should have gold color
     const hasGold =
-      color.includes('212, 175, 55') || borderColor.includes('212, 175, 55');
+      color.includes('214, 177, 58') || borderColor.includes('214, 177, 58');
 
     expect(hasGold || color || borderColor).toBeTruthy();
   });

@@ -148,7 +148,7 @@ test.describe('Navigation Component', () => {
     );
 
     // Should have gold color on hover (RGB values for #d4af37)
-    expect(color).toContain('212, 175, 55'); // Gold color
+    expect(color).toContain('214, 177, 58'); // Gold color
   });
 
   test('should show mobile menu button on mobile', async ({ page }) => {

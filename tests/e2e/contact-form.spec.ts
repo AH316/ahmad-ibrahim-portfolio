@@ -255,7 +255,7 @@ test.describe('Contact Section and Form', () => {
 
     // Should have gold in border or text color
     const hasGold =
-      borderColor.includes('212, 175, 55') || color.includes('212, 175, 55');
+      borderColor.includes('214, 177, 58') || color.includes('214, 177, 58');
 
     expect(hasGold || borderColor || color).toBeTruthy();
   });

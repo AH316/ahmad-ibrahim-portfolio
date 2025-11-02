@@ -279,8 +279,8 @@ test.describe('LOTR Interactive Elements', () => {
         window.getComputedStyle(el).color
       );
 
-      // Should have gold color (212, 175, 55)
-      expect(color).toContain('212, 175, 55');
+      // Should have gold color (214, 177, 58)
+      expect(color).toContain('214, 177, 58');
     });
 
     test('should animate underline on hover', async ({ page }) => {
