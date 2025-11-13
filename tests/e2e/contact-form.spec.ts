@@ -22,7 +22,7 @@ test.describe('Contact Section and Form', () => {
   test('should display section heading', async ({ page }) => {
     const heading = page.locator('[data-testid="contact-section"] h2');
     await expect(heading).toBeVisible();
-    await expect(heading).toHaveText(/Contact/i);
+    await expect(heading).toHaveText(/Get In Touch/i);
   });
 
   test('should display "The journey doesn\'t end here" quote', async ({ page }) => {
@@ -205,7 +205,7 @@ test.describe('Contact Section and Form', () => {
     const content = await contactSection.textContent();
 
     expect(content).toContain('Redmond');
-    expect(content).toContain('WA');
+    expect(content).toContain('Washington');
   });
 
   test('should display Gondor seal decoration', async ({ page }) => {

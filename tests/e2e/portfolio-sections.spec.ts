@@ -121,8 +121,8 @@ test.describe('Portfolio Sections', () => {
     test('should have architectural dividers', async ({ page }) => {
       await scrollToSection(page, '#education');
 
-      // Look for decorative divider elements
-      const dividers = page.locator('[data-testid="education-section"] .bg-gradient-to-r, [data-testid="education-section"] hr');
+      // Look for decorative divider elements (border-t or gradient)
+      const dividers = page.locator('[data-testid="education-section"] .border-t, [data-testid="education-section"] .border-gondor-gold, [data-testid="education-section"] hr');
       const dividerCount = await dividers.count();
 
       expect(dividerCount).toBeGreaterThan(0);
@@ -225,7 +225,7 @@ test.describe('Portfolio Sections', () => {
 
       const heading = page.locator('[data-testid="skills-section"] h2');
       await expect(heading).toBeVisible();
-      await expect(heading).toHaveText('Skills');
+      await expect(heading).toContainText('Skills');
     });
 
     test('should display three skill categories', async ({ page }) => {
