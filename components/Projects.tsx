@@ -58,7 +58,7 @@ export default function Projects() {
           <h2 className="font-cinzel text-4xl md:text-5xl text-gondor-white mb-4">
             Projects
           </h2>
-          <div className="w-24 h-px bg-gondor-gold mx-auto"></div>
+          <div className="w-24 h-px bg-gondor-gold mx-auto" aria-hidden="true"></div>
         </motion.div>
 
         {/* Quote */}
@@ -94,11 +94,11 @@ export default function Projects() {
                               flex items-center justify-center overflow-hidden group-hover:bg-gondor-dark/70
                               transition-colors duration-300">
                 <div className="text-gondor-gold/30 font-cinzel text-6xl group-hover:text-gondor-gold/50
-                                transition-colors duration-300">
+                                transition-colors duration-300" aria-hidden="true">
                   {index + 1}
                 </div>
                 {/* Overlay effect */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gondor-stone/80 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gondor-stone/80 to-transparent" aria-hidden="true"></div>
               </div>
 
               {/* Project Content */}

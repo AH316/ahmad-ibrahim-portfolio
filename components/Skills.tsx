@@ -61,7 +61,7 @@ export default function Skills() {
           <h2 className="font-cinzel text-4xl md:text-5xl text-gondor-white mb-4">
             Skills & Technologies
           </h2>
-          <div className="w-24 h-px bg-gondor-gold mx-auto"></div>
+          <div className="w-24 h-px bg-gondor-gold mx-auto" aria-hidden="true"></div>
         </motion.div>
 
         {/* Skill Categories */}
@@ -80,11 +80,11 @@ export default function Skills() {
             >
               {/* Decorative corner */}
               <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-gondor-gold/20
-                              group-hover:border-gondor-gold/50 transition-colors duration-300" />
+                              group-hover:border-gondor-gold/50 transition-colors duration-300" aria-hidden="true" />
 
               {/* Category Header */}
               <div className="flex items-center gap-4 mb-8">
-                <div className="flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <div className="flex-shrink-0 group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
                   <Icon type={category.icon} size={40} />
                 </div>
                 <h3 className="font-cinzel text-xl md:text-2xl text-gondor-white leading-tight">
@@ -105,7 +105,9 @@ export default function Skills() {
                                hover:border-gondor-gold/30 hover:bg-gondor-stone transition-all duration-300"
                     data-testid={`skill-${categoryIndex}-${skillIndex}`}
                   >
-                    <Icon type={skill.icon} size={20} />
+                    <div aria-hidden="true">
+                      <Icon type={skill.icon} size={20} />
+                    </div>
                     <span className="text-gondor-silver hover:text-gondor-white transition-colors">
                       {skill.name}
                     </span>

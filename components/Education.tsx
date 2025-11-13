@@ -49,7 +49,7 @@ export default function Education() {
           <h2 className="font-cinzel text-4xl md:text-5xl text-gondor-white mb-4">
             Education
           </h2>
-          <div className="w-24 h-px bg-gondor-gold mx-auto"></div>
+          <div className="w-24 h-px bg-gondor-gold mx-auto" aria-hidden="true"></div>
         </motion.div>
 
         {/* Degree */}
@@ -64,11 +64,11 @@ export default function Education() {
           <div className="bg-gondor-dark border border-gondor-gold/30 p-8 relative overflow-hidden group
                           hover:border-gondor-gold/60 transition-all duration-300">
             {/* Decorative corner elements */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-gondor-gold/50"></div>
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-gondor-gold/50"></div>
+            <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-gondor-gold/50" aria-hidden="true"></div>
+            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-gondor-gold/50" aria-hidden="true"></div>
 
             <div className="flex items-start gap-6">
-              <div className="flex-shrink-0 text-gondor-gold group-hover:scale-110 transition-transform duration-300">
+              <div className="flex-shrink-0 text-gondor-gold group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
                 <FaGraduationCap size={48} />
               </div>
 
@@ -118,6 +118,7 @@ export default function Education() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="relative h-12 my-12 flex items-center justify-center"
+          aria-hidden="true"
         >
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-gondor-gold/30"></div>
@@ -151,7 +152,7 @@ export default function Education() {
               data-testid={`certification-card-${index}`}
             >
               <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 text-gondor-gold group-hover:scale-110 transition-transform duration-300">
+                <div className="flex-shrink-0 text-gondor-gold group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
                   <FaCertificate size={32} />
                 </div>
 
