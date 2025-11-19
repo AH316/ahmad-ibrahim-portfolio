@@ -270,7 +270,7 @@ export const OGImage: React.FC = () => {
                 opacity: 0.7,
               }}
             >
-              ahmadibrahim.dev
+              ahmadibrahimdev.com
             </p>
           </div>
         </div>
