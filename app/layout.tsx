@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cinzel, Inter } from "next/font/google";
 import "./globals.css";
-import { seoMetadata } from "@/lib/content";
+import { seoMetadata, personalInfo } from "@/lib/content";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const cinzel = Cinzel({
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: seoMetadata.siteUrl,
-    siteName: "Ahmad Ibrahim Portfolio",
+    siteName: `${personalInfo.name} Portfolio`,
     title: seoMetadata.title,
     description: seoMetadata.description,
     images: [
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
         url: seoMetadata.ogImage,
         width: 1200,
         height: 630,
-        alt: "Ahmad Ibrahim - Software Developer & Test Automation Engineer",
+        alt: `${personalInfo.name} - ${personalInfo.tagline}`,
         type: "image/jpeg",
       },
     ],
