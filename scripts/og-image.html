@@ -220,12 +220,12 @@
         <h1 class="name" id="name">Ahmad Ibrahim</h1>
 
         <!-- Tagline -->
-        <p class="tagline" id="tagline">Software Developer</p>
+        <p class="tagline" id="tagline">Software Development Engineer</p>
 
         <!-- Current Role with Gold Accent -->
         <div class="current-role">
           <div class="role-accent"></div>
-          <p class="role-text" id="current-role">Software Engineer @ Intellica Inc.</p>
+          <p class="role-text" id="current-role">Software Development Enginner</p>
         </div>
       </div>
 
@@ -275,9 +275,9 @@
     // This script pulls data from lib/content.ts calculations
     // In a real implementation, this would be generated server-side or via build script
 
-    // Calculate years of experience (from April 2023 to now)
+    // Calculate years of experience (from January 2023 to now)
     const calculateYears = () => {
-      const startDate = new Date('April 2023');
+      const startDate = new Date('January 2023');
       const now = new Date();
       const years = now.getFullYear() - startDate.getFullYear();
       const months = now.getMonth() - startDate.getMonth();
@@ -297,8 +297,8 @@
     // Log calculated values for verification
     console.log('Open Graph Image Data:');
     console.log('- Name: Ahmad Ibrahim');
-    console.log('- Tagline: Software Developer');
-    console.log('- Current Role: Software Engineer @ Intellica Inc.');
+    console.log('- Tagline: Software Development Engineer');
+    // console.log('- Current Role: Software Engineer @ Intellica Inc.');
     console.log('- Years of Experience:', yearsExp);
     console.log('- Projects Count:', projectsCount);
     console.log('- Skills Count:', skillsCount);

@@ -106,7 +106,7 @@ export interface AboutStats {
 
 export const personalInfo: PersonalInfo = {
   name: 'Ahmad Ibrahim',
-  tagline: 'Software Developer',
+  tagline: 'Software Development Engineer',
   professionalSummary: 'Software Developer experienced in building backend services in Python for a telecom software testing company, as well as building websites using React and Next.js for frontend, and PostgreSQL for the backend database. I am also knowledgeable in Java, C# and Azure cloud services. In addition, I have hands-on experience leveraging agentic AI tools to accelerate development workflows, automate testing, and improve project quality. Passionate about technology, solving problems and being a part of building and maintaining scalable solutions. I am looking to further my career as a software engineer.',
   bio: {
     origin: 'Egypt & Oman',
