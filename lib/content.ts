@@ -434,6 +434,6 @@ export const seoMetadata = {
     'Ahmad Ibrahim',
   ],
   author: 'Ahmad Ibrahim',
-  siteUrl: 'ahmadibrahimdev.com',
+  siteUrl: 'https://ahmadibrahimdev.com',
   ogImage: '/images/og-image.jpg', // Add Open Graph image
 };
