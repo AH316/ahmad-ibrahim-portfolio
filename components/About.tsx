@@ -2,13 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Icon from './lotr/Icon';
-
-const skills = [
-  { icon: 'sword' as const, label: 'Python & Test Automation' },
-  { icon: 'scroll' as const, label: 'React & TypeScript' },
-  { icon: 'tower' as const, label: 'Azure Cloud Services' },
-  { icon: 'shield' as const, label: 'System Security & Testing' },
-];
+import { personalInfo, aboutSkills, aboutStats, funFact } from '@/lib/content';
 
 export default function About() {
   return (
@@ -42,30 +36,23 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6"
           >
-            <p className="text-gondor-silver text-lg leading-relaxed">
-              My journey in software development began in <span className="text-gondor-gold font-semibold">Muscat, Oman</span>,
-              where I earned my B.Sc in Computer Science & Information Technology. The path led me to
-              <span className="text-gondor-gold font-semibold"> Seattle, Washington</span>, where I&apos;ve grown from network administration
-              to software engineering.
-            </p>
+            {personalInfo.bio.journey.map((paragraph, index) => (
+              <p key={index} className="text-gondor-silver text-lg leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
 
-            <p className="text-gondor-silver text-lg leading-relaxed">
-              Starting as a <span className="text-gondor-gold">Network & Systems Administrator at MAPS</span>, I discovered my passion
-              for automation and testing. This led me to <span className="text-gondor-gold">Denali Advanced Integration</span> as an
-              IT Technician, and eventually to <span className="text-gondor-gold">Intellica Inc.</span> as a Software Engineer,
-              where I specialized in gateway testing and API development.
-            </p>
-
-            <p className="text-gondor-silver text-lg leading-relaxed">
-              Most recently, I completed an internship at <span className="text-gondor-gold">Sistahology</span>, building a full-stack
-              journaling application with React, TypeScript, Supabase, and Playwright. This experience solidified my love for
-              creating elegant, user-focused solutions.
-            </p>
+            {/* Professional Summary Section */}
+            {/* <div className="mt-8 pt-8 border-t border-gondor-gold/20">
+              <h3 className="text-xl font-cinzel text-gondor-gold mb-4">Professional Summary</h3>
+              <p className="text-gondor-silver/90 leading-relaxed">
+                {personalInfo.professionalSummary}
+              </p>
+            </div> */}
 
             <div className="pt-6 border-t border-gondor-gold/20">
               <p className="text-gondor-silver text-base italic">
-                <span className="text-gondor-gold font-cinzel">Fun Fact:</span> When I&apos;m not coding, you&apos;ll find me exploring
-                the rich lore of Middle-earth or perfecting my espresso brewing technique.
+                <span className="text-gondor-gold font-cinzel">Fun Fact:</span> {funFact}
               </p>
             </div>
           </motion.div>
@@ -81,7 +68,7 @@ export default function About() {
             <div>
               <h3 className="font-cinzel text-2xl text-gondor-white mb-6">Core Strengths</h3>
               <div className="grid grid-cols-1 gap-6">
-                {skills.map((skill, index) => (
+                {aboutSkills.map((skill, index) => (
                   <motion.div
                     key={skill.label}
                     initial={{ opacity: 0, y: 20 }}
@@ -106,15 +93,15 @@ export default function About() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 pt-8 border-t border-gondor-gold/20">
               <div className="text-center">
-                <div className="font-cinzel text-3xl text-gondor-gold mb-2">3+</div>
+                <div className="font-cinzel text-3xl text-gondor-gold mb-2">{aboutStats.years}</div>
                 <div className="text-gondor-silver text-sm uppercase tracking-wide">Years</div>
               </div>
               <div className="text-center border-x border-gondor-gold/20">
-                <div className="font-cinzel text-3xl text-gondor-gold mb-2">10+</div>
+                <div className="font-cinzel text-3xl text-gondor-gold mb-2">{aboutStats.projects}</div>
                 <div className="text-gondor-silver text-sm uppercase tracking-wide">Projects</div>
               </div>
               <div className="text-center">
-                <div className="font-cinzel text-3xl text-gondor-gold mb-2">5+</div>
+                <div className="font-cinzel text-3xl text-gondor-gold mb-2">{aboutStats.techStacks}</div>
                 <div className="text-gondor-silver text-sm uppercase tracking-wide">Tech Stacks</div>
               </div>
             </div>

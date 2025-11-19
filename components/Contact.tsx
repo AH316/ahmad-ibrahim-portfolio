@@ -3,8 +3,9 @@
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { useForm as useFormspree } from '@formspree/react';
-import { FaLinkedin, FaGithub, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope, FaMapMarkerAlt, FaPhone, FaIdBadge } from 'react-icons/fa';
 import Quote from './lotr/Quote';
+import { socialLinks, personalInfo, quotes } from '@/lib/content';
 
 interface ContactFormData {
   name: string;
@@ -12,26 +13,12 @@ interface ContactFormData {
   message: string;
 }
 
-const socialLinks = [
-  {
-    name: 'LinkedIn',
-    icon: FaLinkedin,
-    url: 'https://www.linkedin.com/in/ahmad-ibrahim316',
-    color: 'hover:text-[#0077b5]',
-  },
-  {
-    name: 'GitHub',
-    icon: FaGithub,
-    url: 'https://github.com/AH316',
-    color: 'hover:text-gondor-white',
-  },
-  {
-    name: 'Email',
-    icon: FaEnvelope,
-    url: 'mailto:ahmadhibrahim316@gmail.com',
-    color: 'hover:text-gondor-gold',
-  },
-];
+// Map social link names to icons
+const iconMap: Record<string, any> = {
+  LinkedIn: FaLinkedin,
+  GitHub: FaGithub,
+  Email: FaEnvelope,
+};
 
 export default function Contact() {
   const {
@@ -80,7 +67,7 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-4xl mx-auto mb-16"
         >
-          <Quote text="The journey doesn't end here" author="Gandalf" />
+          <Quote text={quotes.contact.text} author={quotes.contact.author} />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -229,12 +216,41 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Location */}
-            <div className="flex items-center gap-4 p-4 bg-gondor-dark border border-gondor-gold/20">
-              <FaMapMarkerAlt className="text-gondor-gold text-2xl flex-shrink-0" aria-hidden="true" />
-              <div>
-                <p className="text-gondor-white font-cinzel">Location</p>
-                <p className="text-gondor-silver">Redmond, Washington</p>
+            {/* Contact Info Cards: Location, Phone, Work Authorization */}
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {/* Location Card */}
+              <div className="flex items-start gap-1 py-3 px-1 bg-gondor-dark border border-gondor-gold/20">
+                <FaMapMarkerAlt className="text-gondor-gold text-lg sm:text-xl flex-shrink-0 mt-2" aria-hidden="true" />
+                <div className="flex-1 min-w-0 overflow-hidden">
+                  <p className="text-gondor-white font-cinzel text-xs sm:text-sm mb-1 whitespace-nowrap tracking-tight">Location</p>
+                  <p className="text-gondor-gold text-sm">{personalInfo.location}</p>
+                </div>
+              </div>
+
+              {/* Phone Card */}
+              {personalInfo.phone && (
+                <div className="flex items-start gap-1 py-3 px-1 bg-gondor-dark border border-gondor-gold/20">
+                  <FaPhone className="text-gondor-gold text-lg sm:text-xl flex-shrink-0 mt-2" aria-hidden="true" />
+                  <div className="flex-1 min-w-0 overflow-hidden">
+                    <p className="text-gondor-white font-cinzel text-xs sm:text-sm mb-1 whitespace-nowrap tracking-tight">Phone</p>
+                    <a
+                      href={`tel:${personalInfo.phone.replace(/[^0-9]/g, '')}`}
+                      className="text-gondor-gold hover:text-gondor-gold/80 transition-colors duration-300 text-sm"
+                      aria-label={`Call ${personalInfo.phone}`}
+                    >
+                      {personalInfo.phone}
+                    </a>
+                  </div>
+                </div>
+              )}
+
+              {/* Work Authorization Card */}
+              <div className="flex items-start gap-1 py-3 px-1 bg-gondor-dark border border-gondor-gold/20">
+                <FaIdBadge className="text-gondor-gold text-lg sm:text-xl flex-shrink-0 mt-2" aria-hidden="true" />
+                <div className="flex-1 min-w-0 overflow-hidden">
+                  <p className="text-gondor-white font-cinzel text-xs sm:text-sm mb-1 whitespace-nowrap tracking-tight">Work Authorization</p>
+                  <p className="text-gondor-gold text-sm">{personalInfo.workAuthorization}</p>
+                </div>
               </div>
             </div>
 
@@ -242,24 +258,31 @@ export default function Contact() {
             <div>
               <h3 className="font-cinzel text-xl text-gondor-white mb-4">Connect With Me</h3>
               <div className="space-y-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-4 p-4 bg-gondor-dark border border-gondor-gold/20
-                               hover:border-gondor-gold/50 transition-all duration-300 group
-                               ${social.color}`}
-                    data-testid={`social-link-${social.name.toLowerCase()}`}
-                    aria-label={`Connect on ${social.name}`}
-                  >
-                    <social.icon className="text-gondor-gold text-2xl group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
-                    <span className="text-gondor-silver group-hover:text-gondor-white transition-colors">
-                      {social.name}
-                    </span>
-                  </a>
-                ))}
+                {socialLinks.map((social) => {
+                  const IconComponent = iconMap[social.name];
+                  const hoverColor = social.name === 'LinkedIn' ? 'hover:text-[#0077b5]' :
+                                     social.name === 'GitHub' ? 'hover:text-gondor-white' :
+                                     'hover:text-gondor-gold';
+
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`flex items-center gap-4 p-4 bg-gondor-dark border border-gondor-gold/20
+                                 hover:border-gondor-gold/50 transition-all duration-300 group
+                                 ${hoverColor}`}
+                      data-testid={`social-link-${social.name.toLowerCase()}`}
+                      aria-label={`Connect on ${social.name}`}
+                    >
+                      {IconComponent && <IconComponent className="text-gondor-gold text-2xl group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />}
+                      <span className="text-gondor-silver group-hover:text-gondor-white transition-colors">
+                        {social.name}
+                      </span>
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </motion.div>

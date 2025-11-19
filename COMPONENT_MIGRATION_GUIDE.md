@@ -117,7 +117,7 @@ to software engineering.
 
 // Replace lines 67-69 (fun fact)
 <span className="text-gondor-gold font-cinzel">Fun Fact:</span> When I&apos;m not coding, you&apos;ll find me exploring
-the rich lore of Middle-earth or perfecting my espresso brewing technique.
+the rich lore of Middle-earth or sipping on Adeni chai.
 // With:
 <span className="text-gondor-gold font-cinzel">Fun Fact:</span> {funFact}
 ```

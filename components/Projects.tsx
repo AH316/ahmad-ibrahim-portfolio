@@ -1,43 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Quote from './lotr/Quote';
-
-const projects = [
-  {
-    title: 'Sistahology Journaling App',
-    description: 'A full-stack journaling application built for women&apos;s wellness, featuring user authentication, real-time data sync, and comprehensive end-to-end testing. Implemented secure CRUD operations with Row Level Security.',
-    technologies: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Playwright', 'TailwindCSS'],
-    github: 'https://github.com/AH316',
-    demo: null,
-    image: '/images/sistahology.jpg', // Placeholder - add actual image
-  },
-  {
-    title: 'Gateway Automation Tool',
-    description: 'Python-based automation framework for testing Linux gateways and network devices. Built RESTful API endpoints for TR-181 data model interactions, enabling automated testing and configuration management.',
-    technologies: ['Python', 'REST API', 'Linux', 'TR-181', 'Pytest', 'JSON'],
-    github: 'https://github.com/AH316',
-    demo: null,
-    image: '/images/gateway-tool.jpg', // Placeholder - add actual image
-  },
-  {
-    title: 'TR-181 Data Model Converter',
-    description: 'Developed a conversion tool for transforming TR-181 data model specifications into executable Python code. Streamlined the testing process by automatically generating test cases from data model definitions.',
-    technologies: ['Python', 'XML Parsing', 'Data Modeling', 'Automation'],
-    github: 'https://github.com/AH316',
-    demo: null,
-    image: '/images/tr181-converter.jpg', // Placeholder - add actual image
-  },
-  {
-    title: 'Personal Portfolio',
-    description: 'This very website! A Next.js portfolio with a subtle Lord of the Rings "Gondor Noble" aesthetic. Features smooth animations, responsive design, and a particle background system.',
-    technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
-    github: 'https://github.com/AH316',
-    demo: null,
-    image: '/images/portfolio.jpg', // Placeholder - add actual image
-  },
-];
+import { projects, quotes } from '@/lib/content';
 
 export default function Projects() {
   return (
@@ -70,8 +37,8 @@ export default function Projects() {
           className="max-w-4xl mx-auto mb-16"
         >
           <Quote
-            text="It's the job that's never started that takes longest to finish"
-            author="Sam Gamgee"
+            text={quotes.projects.text}
+            author={quotes.projects.author}
           />
         </motion.div>
 
@@ -89,14 +56,17 @@ export default function Projects() {
                          flex flex-col"
               data-testid={`project-card-${index}`}
             >
-              {/* Project Image Placeholder */}
+              {/* Project Image */}
               <div className="relative h-48 bg-gondor-dark/50 border-b border-gondor-gold/30
-                              flex items-center justify-center overflow-hidden group-hover:bg-gondor-dark/70
-                              transition-colors duration-300">
-                <div className="text-gondor-gold/30 font-cinzel text-6xl group-hover:text-gondor-gold/50
-                                transition-colors duration-300" aria-hidden="true">
-                  {index + 1}
-                </div>
+                              overflow-hidden group-hover:opacity-90 transition-opacity duration-300">
+                <Image
+                  src={project.image}
+                  alt={`${project.title} screenshot`}
+                  width={1200}
+                  height={800}
+                  className="object-cover w-full h-full"
+                  priority={index === 0}
+                />
                 {/* Overlay effect */}
                 <div className="absolute inset-0 bg-gradient-to-t from-gondor-stone/80 to-transparent" aria-hidden="true"></div>
               </div>

@@ -7,6 +7,8 @@ This directory contains all static assets for Ahmad Ibrahim's portfolio website.
 ```
 public/
 ├── resume.pdf                 - Ahmad's resume (copy from Prompt Files/Ahmad Ibrahim.pdf)
+├── certificates/             - Professional certifications
+│   └── csharp-azure-certificate.pdf - C# & Azure Cloud Development Certificate
 ├── images/
 │   └── projects/             - Project screenshots and mockups
 │       ├── sistahology.jpg   - Sistahology Journaling App screenshot
@@ -32,6 +34,14 @@ public/
 - **Source**: Copy from `Prompt Files/Ahmad Ibrahim.pdf`
 - **Updates**: Replace this file when resume is updated
 - **Access**: Public via `/resume.pdf` URL
+
+### Certificates
+- **Location**: `certificates/`
+- **Format**: PDF
+- **Current Files**:
+  - `csharp-azure-certificate.pdf` - C# & Azure Cloud Development Certificate (Skillspire | Microsoft)
+- **Access**: Public via `/certificates/[filename].pdf` URL
+- **Referenced in**: `lib/content.ts` education certifications array
 
 ### Project Images
 - **Location**: `images/projects/`
@@ -74,6 +84,15 @@ public/
 ### Adding Resume
 ```bash
 cp "Prompt Files/Ahmad Ibrahim.pdf" public/resume.pdf
+```
+
+### Adding Certificates
+```bash
+# Create certificates directory if it doesn't exist
+mkdir -p public/certificates
+
+# Copy C# Azure certificate
+cp "Prompt Files/C#_Azure_Certificate.pdf" public/certificates/csharp-azure-certificate.pdf
 ```
 
 ### Adding Project Screenshots

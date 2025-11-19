@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FaChevronDown } from 'react-icons/fa';
 import Quote from './lotr/Quote';
 import ParticleBackground from './lotr/ParticleBackground';
+import { personalInfo, quotes } from '@/lib/content';
 
 export default function Hero() {
   const scrollToAbout = () => {
@@ -32,7 +33,7 @@ export default function Hero() {
           className="font-cinzel text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-gondor-white mb-6"
           data-testid="hero-name"
         >
-          Ahmad Ibrahim
+          {personalInfo.name}
         </motion.h1>
 
         {/* Tagline */}
@@ -43,7 +44,7 @@ export default function Hero() {
           className="text-gondor-silver text-xl sm:text-2xl md:text-3xl mb-8 font-light"
           data-testid="hero-tagline"
         >
-          Software Developer | Test Automation Engineer
+          {personalInfo.tagline}
         </motion.p>
 
         {/* Divider */}
@@ -62,8 +63,8 @@ export default function Hero() {
           className="max-w-3xl mx-auto mb-16"
         >
           <Quote
-            text="All we have to decide is what to do with the time that is given us"
-            author="Gandalf"
+            text={quotes.hero.text}
+            author={quotes.hero.author}
           />
         </motion.div>
 

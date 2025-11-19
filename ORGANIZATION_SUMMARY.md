@@ -30,7 +30,7 @@ Successfully organized Ahmad Ibrahim's Next.js personal portfolio by creating ce
   - `socialLinks` - LinkedIn, GitHub, Email with URLs
   - `aboutSkills` - 4 core skills with LOTR icons
   - `aboutStats` - Years (3+), Projects (10+), Tech Stacks (5+)
-  - `funFact` - Personal fun fact about LOTR and espresso
+  - `funFact` - Personal fun fact about LOTR and Adeni chai
   - `education` - B.Sc degree + 2 certifications (C# Azure, Embracing AI)
   - `experiences` - 3 work positions with full responsibilities
     - Intellica Inc. (Feb 2025 – June 2025)

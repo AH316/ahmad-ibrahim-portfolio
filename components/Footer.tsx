@@ -2,14 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { FaHeart } from 'react-icons/fa';
-
-const footerLinks = [
-  { name: 'Home', href: '#hero' },
-  { name: 'About', href: '#about' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
-];
+import { footerLinks, footerDescription, socialLinks, personalInfo, quotes } from '@/lib/content';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -42,8 +35,7 @@ export default function Footer() {
               AI
             </motion.button>
             <p className="text-gondor-silver text-sm leading-relaxed max-w-sm">
-              Software Developer specializing in test automation and full-stack development.
-              Building elegant solutions, one line of code at a time.
+              {footerDescription}
             </p>
           </div>
 
@@ -82,34 +74,29 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="mailto:ahmadhibrahim316@gmail.com"
+                  href={`mailto:${personalInfo.email}`}
                   className="text-gondor-silver hover:text-gondor-gold transition-colors"
                   data-testid="footer-email"
                 >
-                  ahmadhibrahim316@gmail.com
+                  {personalInfo.email}
                 </a>
               </li>
-              <li className="text-gondor-silver">Redmond, WA</li>
+              <li className="text-gondor-silver">{personalInfo.location}</li>
               <li className="pt-2">
-                <a
-                  href="https://www.linkedin.com/in/ahmad-ibrahim316"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gondor-silver hover:text-gondor-gold transition-colors"
-                  data-testid="footer-linkedin"
-                >
-                  LinkedIn
-                </a>
-                <span className="mx-2 text-gondor-gold">•</span>
-                <a
-                  href="https://github.com/AH316"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gondor-silver hover:text-gondor-gold transition-colors"
-                  data-testid="footer-github"
-                >
-                  GitHub
-                </a>
+                {socialLinks.filter(link => link.name === 'LinkedIn' || link.name === 'GitHub').map((link, index) => (
+                  <span key={link.name}>
+                    {index > 0 && <span className="mx-2 text-gondor-gold">•</span>}
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gondor-silver hover:text-gondor-gold transition-colors"
+                      data-testid={`footer-${link.name.toLowerCase()}`}
+                    >
+                      {link.name}
+                    </a>
+                  </span>
+                ))}
               </li>
             </ul>
           </div>
@@ -140,7 +127,7 @@ export default function Footer() {
           className="text-center mt-8 pt-8 border-t border-gondor-gold/10"
         >
           <p className="text-gondor-silver/50 text-xs italic font-cinzel">
-            &ldquo;Not all those who wander are lost&rdquo;
+            &ldquo;{quotes.footer.text}&rdquo;
           </p>
         </motion.div>
       </div>

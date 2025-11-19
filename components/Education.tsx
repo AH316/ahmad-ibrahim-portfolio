@@ -1,34 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaCertificate } from 'react-icons/fa';
-
-const education = {
-  degree: {
-    title: 'B.Sc Computer Science & Information Technology',
-    honor: '2nd Class Honours',
-    institution: 'Open University',
-    location: 'Muscat, Oman',
-    year: '2020',
-    coursework: [
-      'Data Structures & Algorithms',
-      'Object-Oriented Programming',
-      'Programming with Java & Python',
-    ],
-  },
-  certifications: [
-    {
-      title: 'C# & Azure Cloud Development',
-      issuer: 'Skillspire | Microsoft',
-      date: 'April 2024 – August 2024',
-    },
-    {
-      title: 'Embracing AI',
-      issuer: 'Skillspire | Microsoft',
-      date: 'July 2025 – September 2025',
-    },
-  ],
-};
+import { FaGraduationCap, FaCertificate, FaExternalLinkAlt } from 'react-icons/fa';
+import { education } from '@/lib/content';
 
 export default function Education() {
   return (
@@ -37,7 +11,7 @@ export default function Education() {
       className="py-20 md:py-32 bg-gondor-stone relative"
       data-testid="education-section"
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,64 +26,69 @@ export default function Education() {
           <div className="w-24 h-px bg-gondor-gold mx-auto" aria-hidden="true"></div>
         </motion.div>
 
-        {/* Degree */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-12"
-          data-testid="degree-card"
-        >
-          <div className="bg-gondor-dark border border-gondor-gold/30 p-8 relative overflow-hidden group
-                          hover:border-gondor-gold/60 transition-all duration-300">
-            {/* Decorative corner elements */}
-            <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-gondor-gold/50" aria-hidden="true"></div>
-            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-gondor-gold/50" aria-hidden="true"></div>
+        {/* Degrees Grid (Horizontal on desktop, stack on mobile) */}
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6 mb-12">
+          {education.degrees.map((degree, degreeIndex) => (
+            <motion.div
+              key={degreeIndex}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 + degreeIndex * 0.1 }}
+              data-testid={`degree-card-${degreeIndex}`}
+            >
+              <div className="bg-gondor-dark border border-gondor-gold/30 p-6 md:p-8 relative overflow-hidden group
+                              hover:border-gondor-gold/60 transition-all duration-300 h-full flex flex-col">
+                {/* Decorative corner elements */}
+                <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-gondor-gold/50" aria-hidden="true"></div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-gondor-gold/50" aria-hidden="true"></div>
 
-            <div className="flex items-start gap-6">
-              <div className="flex-shrink-0 text-gondor-gold group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
-                <FaGraduationCap size={48} />
-              </div>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0 text-gondor-gold group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
+                    <FaGraduationCap size={40} />
+                  </div>
 
-              <div className="flex-1">
-                <div className="flex flex-wrap items-baseline gap-3 mb-2">
-                  <h3 className="font-cinzel text-2xl md:text-3xl text-gondor-white">
-                    {education.degree.title}
-                  </h3>
-                  <span className="text-gondor-gold text-lg font-cinzel">
-                    {education.degree.honor}
-                  </span>
-                </div>
-
-                <div className="text-gondor-silver text-lg mb-4">
-                  <span className="font-semibold">{education.degree.institution}</span>
-                  <span className="mx-2">•</span>
-                  <span>{education.degree.location}</span>
-                  <span className="mx-2">•</span>
-                  <span className="text-gondor-gold">{education.degree.year}</span>
-                </div>
-
-                <div className="mt-4">
-                  <h4 className="text-gondor-gold font-cinzel text-sm uppercase tracking-wider mb-3">
-                    Relevant Coursework
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {education.degree.coursework.map((course, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-gondor-stone border border-gondor-gold/20
-                                   text-gondor-silver text-sm"
-                      >
-                        {course}
-                      </span>
-                    ))}
+                  <div className="flex-1">
+                    <h3 className="font-cinzel text-xl md:text-2xl text-gondor-white mb-2 leading-tight">
+                      {degree.title}
+                    </h3>
+                    <span className="text-gondor-gold text-base font-cinzel">
+                      {degree.honor}
+                    </span>
                   </div>
                 </div>
+
+                <div className="text-gondor-silver text-sm mb-4">
+                  <div className="font-semibold">{degree.institution}</div>
+                  <div className="mt-1">
+                    <span>{degree.location}</span>
+                    <span className="mx-2">•</span>
+                    <span className="text-gondor-gold">{degree.year}</span>
+                  </div>
+                </div>
+
+                {degree.coursework.length > 0 && (
+                  <div className="mt-auto">
+                    <h4 className="text-gondor-gold font-cinzel text-xs uppercase tracking-wider mb-3">
+                      Relevant Coursework
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {degree.coursework.map((course, index) => (
+                        <span
+                          key={index}
+                          className="px-2 py-1 bg-gondor-stone border border-gondor-gold/20
+                                     text-gondor-silver text-xs"
+                        >
+                          {course}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+          ))}
+        </div>
 
         {/* Architectural Divider */}
         <motion.div
@@ -128,8 +107,8 @@ export default function Education() {
           </div>
         </motion.div>
 
-        {/* Certifications */}
-        <div className="space-y-6">
+        {/* Certifications Grid (Horizontal on desktop, stack on mobile) */}
+        <div>
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -140,36 +119,73 @@ export default function Education() {
             Certifications
           </motion.h3>
 
-          {education.certifications.map((cert, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-              className="bg-gondor-dark border border-gondor-gold/30 p-6
-                         hover:border-gondor-gold/60 transition-all duration-300 group"
-              data-testid={`certification-card-${index}`}
-            >
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 text-gondor-gold group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
-                  <FaCertificate size={32} />
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
+            {education.certifications.map((cert, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                className="bg-gondor-dark border border-gondor-gold/30 p-6
+                           hover:border-gondor-gold/60 transition-all duration-300 group h-full flex flex-col"
+                data-testid={`certification-card-${index}`}
+              >
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="flex-shrink-0 text-gondor-gold group-hover:scale-110 transition-transform duration-300" aria-hidden="true">
+                    <FaCertificate size={32} />
+                  </div>
+
+                  <div className="flex-1">
+                    <h4 className="font-cinzel text-lg md:text-xl text-gondor-white mb-2 leading-tight">
+                      {cert.title}
+                    </h4>
+                    <p className="text-gondor-silver text-sm mb-1">
+                      {cert.issuer}
+                    </p>
+                    <p className="text-gondor-gold text-xs font-cinzel mb-3">
+                      {cert.date}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="flex-1">
-                  <h4 className="font-cinzel text-xl text-gondor-white mb-2">
-                    {cert.title}
-                  </h4>
-                  <p className="text-gondor-silver text-base mb-1">
-                    {cert.issuer}
+                {cert.description && (
+                  <p className="text-gondor-silver text-sm leading-relaxed mb-3">
+                    {cert.description}
                   </p>
-                  <p className="text-gondor-gold text-sm font-cinzel">
-                    {cert.date}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                )}
+
+                {cert.skills && cert.skills.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {cert.skills.map((skill, skillIndex) => (
+                      <span
+                        key={skillIndex}
+                        className="px-2 py-1 bg-gondor-stone border border-gondor-gold/20
+                                   text-gondor-silver text-xs"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {cert.certificateUrl && (
+                  <a
+                    href={cert.certificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 px-4 py-2
+                               bg-transparent border-2 border-gondor-gold text-gondor-gold
+                               hover:bg-gondor-gold hover:text-gondor-dark
+                               transition-all duration-300 font-cinzel text-sm"
+                  >
+                    <FaExternalLinkAlt className="text-sm" />
+                    View Certificate
+                  </a>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

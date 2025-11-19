@@ -12,6 +12,7 @@
 export interface PersonalInfo {
   name: string;
   tagline: string;
+  professionalSummary: string;
   bio: {
     origin: string;
     currentLocation: string;
@@ -20,6 +21,7 @@ export interface PersonalInfo {
   location: string;
   email: string;
   phone?: string;
+  workAuthorization: string;
 }
 
 export interface SocialLink {
@@ -36,15 +38,17 @@ export interface Experience {
   responsibilities: string[];
 }
 
+export interface Degree {
+  title: string;
+  honor: string;
+  institution: string;
+  location: string;
+  year: string;
+  coursework: string[];
+}
+
 export interface Education {
-  degree: {
-    title: string;
-    honor: string;
-    institution: string;
-    location: string;
-    year: string;
-    coursework: string[];
-  };
+  degrees: Degree[];
   certifications: Certification[];
 }
 
@@ -52,6 +56,10 @@ export interface Certification {
   title: string;
   issuer: string;
   date: string;
+  certificateId?: string;
+  description?: string;
+  skills?: string[];
+  certificateUrl?: string;
 }
 
 export interface Skill {
@@ -99,17 +107,20 @@ export interface AboutStats {
 export const personalInfo: PersonalInfo = {
   name: 'Ahmad Ibrahim',
   tagline: 'Software Developer | Test Automation Engineer',
+  professionalSummary: 'Software Developer experienced in building backend services in Python for a telecom software testing company, as well as building websites using React and Next.js for frontend, and PostgreSQL for the backend database. I am also knowledgeable in Java, C# and Azure cloud services. In addition, I have hands-on experience leveraging agentic AI tools to accelerate development workflows, automate testing, and improve project quality. Passionate about technology, solving problems and being a part of building and maintaining scalable solutions. I am looking to further my career as a software engineer.',
   bio: {
-    origin: 'Muscat, Oman',
+    origin: 'Egypt & Oman',
     currentLocation: 'Seattle, Washington',
     journey: [
-      'My journey in software development began in Muscat, Oman, where I earned my B.Sc in Computer Science & Information Technology. The path led me to Seattle, Washington, where I\'ve grown from network administration to software engineering.',
-      'Starting as a Network & Systems Administrator at MAPS, I discovered my passion for automation and testing. This led me to Denali Advanced Integration as an IT Technician, and eventually to Intellica Inc. as a Software Engineer, where I specialized in gateway testing and API development.',
-      'Most recently, I completed an internship at Sistahology, building a full-stack journaling application with React, TypeScript, Supabase, and Playwright. This experience solidified my love for creating elegant, user-focused solutions.',
+      'My journey in software development began in Egypt, where I started my computer science coursework. I continued my studies in Oman and earned my B.Sc in Computer Science & Information Technology from the Open University (United Kingdom) in 2020. This international educational foundation led me to Seattle, Washington, where I\'ve grown from network administration to software engineering.',
+      'Starting as a Network & Systems Administrator at MAPS, I discovered my passion for automation and testing. This led me to Denali Advanced Integration as an IT Systems Engineer, and eventually to Intellica Inc. as a Software Engineer, where I specialized in gateway testing and API development.',
+      'During my time at Intellica (January - September 2025), I also completed a part-time remote internship at Sistahology (April - August 2025), building a full-stack journaling application with React, TypeScript, Supabase, and Playwright. I have hands-on experience leveraging agentic AI tools to accelerate development workflows, automate testing, and improve project quality.',
     ],
   },
   location: 'Redmond, WA',
   email: 'ahmadhibrahim316@gmail.com',
+  phone: '(206) 771-6763',
+  workAuthorization: 'US Citizen',
 };
 
 // ============================================================================
@@ -150,35 +161,51 @@ export const aboutStats: AboutStats = {
   techStacks: '5+',
 };
 
-export const funFact = 'When I\'m not coding, you\'ll find me exploring the rich lore of Middle-earth or perfecting my espresso brewing technique.';
+export const funFact = 'When I\'m not coding, you\'ll find me exploring the rich lore of Middle-earth or sipping on Adeni chai.';
 
 // ============================================================================
 // Education
 // ============================================================================
 
 export const education: Education = {
-  degree: {
-    title: 'B.Sc Computer Science & Information Technology',
-    honor: '2nd Class Honours',
-    institution: 'Open University',
-    location: 'Muscat, Oman',
-    year: '2020',
-    coursework: [
-      'Data Structures & Algorithms',
-      'Object-Oriented Programming',
-      'Programming with Java & Python',
-    ],
-  },
+  degrees: [
+    {
+      title: 'B.A. Coursework in Advanced Computer Science and AI Systems',
+      honor: 'In Progress',
+      institution: 'Bellevue College',
+      location: 'Bellevue, WA',
+      year: '2025 (In-Progress)',
+      coursework: [],
+    },
+    {
+      title: 'B.Sc Computer Science & Information Technology',
+      honor: '2nd Class Honours',
+      institution: 'Open University',
+      location: 'United Kingdom',
+      year: '2020',
+      coursework: [
+        'Data Structures & Algorithms',
+        'Object-Oriented Programming',
+        'Programming with Java & Python',
+      ],
+    },
+  ],
   certifications: [
+    {
+      title: 'AI Development & Automation Certificate',
+      issuer: 'Skillspire | Microsoft',
+      date: 'July 2025 – September 2025',
+      description: 'Orchestrated a team of AI agents (Frontend, QA Lead, DB Guardian, Repo Librarian) to automate coding, schema checks, UI tests, and documentation. Automated DB audits and GitHub repo maintenance via Claude MCP servers; accelerated iteration speed by 3× compared to manual workflows. Leveraged AI for collaborative code reviews and deployment planning.',
+      skills: ['AI Agents', 'Claude MCP', 'Automation', 'Code Reviews', 'CI/CD'],
+    },
     {
       title: 'C# & Azure Cloud Development',
       issuer: 'Skillspire | Microsoft',
       date: 'April 2024 – August 2024',
-    },
-    {
-      title: 'Embracing AI',
-      issuer: 'Skillspire | Microsoft',
-      date: 'July 2025 – September 2025',
+      certificateId: 'c5764787-febc-496d-824f-b144c4af45b3',
+      description: 'Developed a conversational AI chatbot using C# and .NET Framework, integrated with Azure OpenAI (ChatGPT) for context-aware user interactions and automated customer support workflows. Engineered object-oriented solutions implementing design patterns, custom data structures (linked lists, stacks, queues), reduced unnecessary allocations and understood garbage collection behavior. Applied Test-Driven Development practices with comprehensive unit, functional, and integration test suites; achieved 85%+ code coverage through systematic debugging and quality assurance. Delivered full-stack capstone project following industry SDLC practices: requirements gathering, architecture design, implementation, CI/CD integration, and technical documentation.',
+      skills: ['C#', '.NET Framework', 'Azure OpenAI', 'ChatGPT API', 'OOP', 'TDD', 'Unit Testing', 'SDLC'],
+      certificateUrl: '/certificates/csharp-azure-certificate.pdf',
     },
   ],
 };
@@ -191,39 +218,55 @@ export const experiences: Experience[] = [
   {
     title: 'Software Engineer',
     company: 'Intellica Inc.',
-    location: 'Redmond, WA',
-    period: 'Feb 2025 – June 2025',
-    responsibilities: [
-      'Developed and maintained Python-based gateway automation tools for Linux system testing',
-      'Built RESTful APIs for TR-181 data model interactions and device management',
-      'Implemented comprehensive testing suites ensuring 95%+ code coverage',
-      'Collaborated with cross-functional teams to deliver scalable automation solutions',
-    ],
-  },
-  {
-    title: 'IT Technician',
-    company: 'Denali Advanced Integration',
     location: 'Bellevue, WA',
-    period: 'Aug 2024 – Feb 2025',
+    period: 'January 2025 – September 2025',
     responsibilities: [
-      'Provided technical support and troubleshooting for enterprise systems',
-      'Managed system deployments and configurations across multiple environments',
-      'Automated routine maintenance tasks using scripting and batch processes',
-      'Maintained documentation for IT procedures and system architectures',
+      'Identified and documented over 200 parameter mismatches across multiple telecom gateway models through Python-based validation automation',
+      'Built a Python automation API to convert large sets of TR-181 (Technical Report 181) data model (a public data model that is used as a reference for telecom companies) parameters into a structured Excel report, for validation with device data model',
+      'Diagnosed and engineered a fix for false-positive results in SSID automation by identifying undocumented requirements for a commit operation and integrating auto-commit logic into the test framework',
+      'Designed and implemented backend test-automation services in Python for gateway data models with integrated parameter validation workflows',
+      'Enhanced gateway deployment reliability through comprehensive input boundary testing and error handling mechanisms',
+      'Collaborated with QA and DevOps engineers to define validation logic, document processes, and support CI/CD-ready testing practices',
+      'Tools: Python, BitBucket, Jira, Confluence, VS Code, Terminal/Bash',
     ],
   },
   {
-    title: 'Network & Systems Administrator',
-    company: 'MAPS',
-    location: 'Muscat, Oman',
-    period: 'July 2022 – Aug 2024',
+    title: 'Software Engineering Internship (Remote | Part-time)',
+    company: 'Skillspire | Sistahology',
+    location: 'Seattle, WA',
+    period: 'April 2025 – August 2025',
     responsibilities: [
-      'Administered Windows Server and Active Directory for 100+ users',
-      'Configured and maintained network infrastructure including VPNs and firewalls',
-      'Implemented security protocols and conducted regular system audits',
-      'Automated user provisioning and backup processes using PowerShell',
+      'Developed and deployed a full-stack journaling web app with secure authentication, profile management, and dynamic content delivery',
+      'Strengthened DB security by implementing RLS (Row-Level Security), role-based access, and Supabase triggers; reduced potential data leaks to 0% in tests',
+      'Built automated Playwright test suites (UI, auth flows, accessibility); cut manual QA cycle time from ~2 days to <2 hours',
+      'Improved site reliability by debugging and optimizing auth bootstrap, reducing session load errors by 80% across dev/preview builds',
+      'Integrated Git/GitHub workflows, CI/CD prep for Vercel, and migration scripts for schema/index optimizations (write-heavy performance)',
+      'Tech Stack: React, TypeScript, Supabase (Postgres, Auth, RLS), Playwright, Vercel, Git/GitHub, Node.js, TailwindCSS',
     ],
   },
+  {
+    title: 'IT Systems Engineer',
+    company: 'Denali Advanced Integration',
+    location: 'Redmond, WA',
+    period: 'June 2024 – December 2024',
+    responsibilities: [
+      'Automated and standardized provisioning workflows for enterprise scanner devices, supporting scalability of deployments for major clients',
+      'Assisted in server and network hardware installation across IDF (Intermediate Distribution Frame) and MDF(Main Distribution Frame) environments',
+      'Documented deployment procedures and technical configurations to support repeatable rollouts',
+      'Collaborated with deployment teams to track, test, and document device configurations, improving turnaround time and consistency across IT rollouts',
+    ],
+  },
+  // {
+  //   title: 'Network & Systems Administrator / AV Operations',
+  //   company: 'MAPS',
+  //   location: 'Redmond',
+  //   period: 'April 2023 – June 2024',
+  //   responsibilities: [
+  //     'Managed MAPS\' digital AV infrastructure, including a network-based audio system with centralized control over distributed speaker systems and live streaming technology, coordinating with staff and volunteers to ensure smooth event execution',
+  //     'Administered the internal network systems, including basic network configuration and connectivity troubleshooting',
+  //     'Gained hands-on experience with enterprise-level AV systems, including signal routing, IP-based device control, and system resets – with strong understanding of how components integrate in a larger digital environment',
+  //   ],
+  // },
 ];
 
 // ============================================================================
@@ -241,6 +284,7 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Linux Gateway Testing', icon: 'tower' },
       { name: 'TR-181 Data Models', icon: 'scroll' },
       { name: 'Test Automation Frameworks', icon: 'shield' },
+      { name: 'Pytest', icon: 'shield' },
     ],
   },
   {
@@ -252,6 +296,7 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Next.js', icon: 'scroll' },
       { name: 'PostgreSQL', icon: 'tower' },
       { name: 'Supabase', icon: 'ring' },
+      { name: 'Node.js', icon: 'ring' },
       { name: 'TailwindCSS', icon: 'scroll' },
     ],
   },
@@ -260,11 +305,12 @@ export const skillCategories: SkillCategory[] = [
     icon: 'tower',
     skills: [
       { name: 'Azure Cloud Services', icon: 'tower' },
+      { name: 'Azure App Services', icon: 'tower' },
+      { name: 'Azure Functions', icon: 'tower' },
       { name: 'GitHub', icon: 'ring' },
       { name: 'CI/CD Pipelines', icon: 'ring' },
-      { name: 'Docker', icon: 'tower' },
+      { name: 'BitBucket', icon: 'ring' },
       { name: 'PowerShell', icon: 'scroll' },
-      { name: 'Windows Server', icon: 'castle' },
     ],
   },
 ];
@@ -273,10 +319,15 @@ export const additionalSkills: string[] = [
   'Git',
   'C#',
   'Java',
-  'Active Directory',
-  'VPN Configuration',
-  'System Security',
+  'Cursor',
+  'Claude AI',
+  'Claude Code',
+  'VS Code',
+  'Jira',
+  'Confluence',
   'API Design',
+  'System Security',
+  'Agentic AI',
 ];
 
 // ============================================================================
@@ -293,20 +344,20 @@ export const projects: Project[] = [
     image: '/images/projects/sistahology.jpg',
   },
   {
-    title: 'Gateway Automation Tool',
-    description: 'Python-based automation framework for testing Linux gateways and network devices. Built RESTful API endpoints for TR-181 data model interactions, enabling automated testing and configuration management.',
-    technologies: ['Python', 'REST API', 'Linux', 'TR-181', 'Pytest', 'JSON'],
-    github: 'https://github.com/AH316',
-    demo: null,
-    image: '/images/projects/gateway-tool.jpg',
-  },
-  {
     title: 'TR-181 Data Model Converter',
     description: 'Developed a conversion tool for transforming TR-181 data model specifications into executable Python code. Streamlined the testing process by automatically generating test cases from data model definitions.',
     technologies: ['Python', 'XML Parsing', 'Data Modeling', 'Automation'],
     github: 'https://github.com/AH316',
     demo: null,
     image: '/images/projects/tr181-converter.jpg',
+  },
+  {
+    title: 'C# Azure AI Chatbot',
+    description: 'Conversational AI chatbot built with C# and .NET Framework, integrated with Azure OpenAI (ChatGPT) for context-aware user interactions and automated customer support workflows',
+    technologies: ['C#', '.NET Framework', 'Azure OpenAI', 'ChatGPT API', 'REST APIs', 'Async Programming'],
+    github: 'https://github.com/AH316/ChatGPTConsoleApp',
+    demo: null,
+    image: '/images/projects/chatbot.jpg',
   },
   {
     title: 'Personal Portfolio',
@@ -353,7 +404,9 @@ export const footerLinks = [
   { name: 'Home', href: '#hero' },
   { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
+  { name: 'Education', href: '#education' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Skills', href: '#skills' }, 
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -365,7 +418,7 @@ export const footerDescription = 'Software Developer specializing in test automa
 
 export const seoMetadata = {
   title: 'Ahmad Ibrahim | Software Developer',
-  description: 'Software Developer and Test Automation Engineer specializing in Python, React, TypeScript, and Azure Cloud. Based in Redmond, WA.',
+  description: 'Software Developer and Test Automation Engineer specializing in Python backend services, React/Next.js frontend, PostgreSQL, and Azure Cloud. Hands-on experience with agentic AI tools to accelerate development workflows. Based in Redmond, WA.',
   keywords: [
     'Software Developer',
     'Test Automation Engineer',
@@ -374,6 +427,9 @@ export const seoMetadata = {
     'TypeScript',
     'Azure Cloud',
     'Full-Stack Developer',
+    'AI Development',
+    'Agentic AI',
+    'Claude AI',
     'Redmond WA',
     'Ahmad Ibrahim',
   ],

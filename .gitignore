@@ -55,3 +55,6 @@ next-env.d.ts
 
 # Claude Code internal documentation (do not commit)
 CLAUDE.md
+
+# Internal documentation and prompts (do not commit)
+Prompt Files/

@@ -13,7 +13,9 @@
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:debug": "playwright test --debug",
     "test:e2e:report": "playwright show-report artifacts/playwright-report",
-    "snap:update": "playwright test --update-snapshots"
+    "snap:update": "playwright test --update-snapshots",
+    "generate:favicon": "cd scripts && playwright test generate-favicon.spec.ts --config=./playwright.config.ts",
+    "generate:og": "cd scripts && playwright test generate-og-image.spec.ts --config=./playwright.config.ts"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",

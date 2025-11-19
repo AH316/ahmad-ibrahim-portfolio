@@ -2,45 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Icon from './lotr/Icon';
-
-const skillCategories = [
-  {
-    title: 'Test Automation & Development',
-    icon: 'sword' as const,
-    skills: [
-      { name: 'Python', icon: 'sword' as const },
-      { name: 'RESTful APIs', icon: 'scroll' as const },
-      { name: 'Playwright', icon: 'shield' as const },
-      { name: 'Linux Gateway Testing', icon: 'tower' as const },
-      { name: 'TR-181 Data Models', icon: 'scroll' as const },
-      { name: 'Test Automation Frameworks', icon: 'shield' as const },
-    ],
-  },
-  {
-    title: 'Full-Stack Development',
-    icon: 'scroll' as const,
-    skills: [
-      { name: 'React', icon: 'scroll' as const },
-      { name: 'TypeScript', icon: 'scroll' as const },
-      { name: 'Next.js', icon: 'scroll' as const },
-      { name: 'PostgreSQL', icon: 'tower' as const },
-      { name: 'Supabase', icon: 'ring' as const },
-      { name: 'TailwindCSS', icon: 'scroll' as const },
-    ],
-  },
-  {
-    title: 'Cloud & DevOps',
-    icon: 'tower' as const,
-    skills: [
-      { name: 'Azure Cloud Services', icon: 'tower' as const },
-      { name: 'GitHub', icon: 'ring' as const },
-      { name: 'CI/CD Pipelines', icon: 'ring' as const },
-      { name: 'Docker', icon: 'tower' as const },
-      { name: 'PowerShell', icon: 'scroll' as const },
-      { name: 'Windows Server', icon: 'castle' as const },
-    ],
-  },
-];
+import { skillCategories, additionalSkills } from '@/lib/content';
 
 export default function Skills() {
   return (
@@ -131,7 +93,7 @@ export default function Skills() {
               <span className="text-gondor-gold font-cinzel">Also Experienced With:</span>
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              {['Git', 'C#', 'Java', 'Active Directory', 'VPN Configuration', 'System Security', 'API Design'].map((tech) => (
+              {additionalSkills.map((tech) => (
                 <span
                   key={tech}
                   className="px-3 py-1 bg-gondor-stone border border-gondor-gold/20 text-gondor-silver text-xs

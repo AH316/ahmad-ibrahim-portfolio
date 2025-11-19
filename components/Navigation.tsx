@@ -7,10 +7,10 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 const navLinks = [
   { name: 'Home', href: '#hero' },
   { name: 'About', href: '#about' },
-  { name: 'Education', href: '#education' },
   { name: 'Experience', href: '#experience' },
-  { name: 'Skills', href: '#skills' },
+  { name: 'Education', href: '#education' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Skills', href: '#skills' },
   { name: 'Contact', href: '#contact' },
   { name: 'Resume', href: '/resume.pdf', external: true },
 ];
