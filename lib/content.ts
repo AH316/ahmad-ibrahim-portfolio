@@ -434,6 +434,6 @@ export const seoMetadata = {
     'Ahmad Ibrahim',
   ],
   author: 'Ahmad Ibrahim',
-  siteUrl: 'https://ahmadibrahim.dev', // Update with actual domain
+  siteUrl: 'https://ahmad-ibrahim-portfolio.vercel.app',
   ogImage: '/images/og-image.jpg', // Add Open Graph image
 };
