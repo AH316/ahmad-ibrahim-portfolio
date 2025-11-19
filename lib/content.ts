@@ -106,7 +106,7 @@ export interface AboutStats {
 
 export const personalInfo: PersonalInfo = {
   name: 'Ahmad Ibrahim',
-  tagline: 'Software Developer | Test Automation Engineer',
+  tagline: 'Software Developer',
   professionalSummary: 'Software Developer experienced in building backend services in Python for a telecom software testing company, as well as building websites using React and Next.js for frontend, and PostgreSQL for the backend database. I am also knowledgeable in Java, C# and Azure cloud services. In addition, I have hands-on experience leveraging agentic AI tools to accelerate development workflows, automate testing, and improve project quality. Passionate about technology, solving problems and being a part of building and maintaining scalable solutions. I am looking to further my career as a software engineer.',
   bio: {
     origin: 'Egypt & Oman',
@@ -149,10 +149,10 @@ export const socialLinks: SocialLink[] = [
 // ============================================================================
 
 export const aboutSkills: AboutSkill[] = [
-  { icon: 'sword', label: 'Python & Test Automation' },
   { icon: 'scroll', label: 'React & TypeScript' },
+  { icon: 'sword', label: 'Python Development' },
   { icon: 'tower', label: 'Azure Cloud Services' },
-  { icon: 'shield', label: 'System Security & Testing' },
+  { icon: 'shield', label: 'Full-Stack Engineering' },
 ];
 
 export const aboutStats: AboutStats = {
@@ -275,19 +275,6 @@ export const experiences: Experience[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: 'Test Automation & Development',
-    icon: 'sword',
-    skills: [
-      { name: 'Python', icon: 'sword' },
-      { name: 'RESTful APIs', icon: 'scroll' },
-      { name: 'Playwright', icon: 'shield' },
-      { name: 'Linux Gateway Testing', icon: 'tower' },
-      { name: 'TR-181 Data Models', icon: 'scroll' },
-      { name: 'Test Automation Frameworks', icon: 'shield' },
-      { name: 'Pytest', icon: 'shield' },
-    ],
-  },
-  {
     title: 'Full-Stack Development',
     icon: 'scroll',
     skills: [
@@ -311,6 +298,19 @@ export const skillCategories: SkillCategory[] = [
       { name: 'CI/CD Pipelines', icon: 'ring' },
       { name: 'BitBucket', icon: 'ring' },
       { name: 'PowerShell', icon: 'scroll' },
+    ],
+  },
+  {
+    title: 'Test Automation & Quality',
+    icon: 'sword',
+    skills: [
+      { name: 'Python', icon: 'sword' },
+      { name: 'RESTful APIs', icon: 'scroll' },
+      { name: 'Playwright', icon: 'shield' },
+      { name: 'Linux Gateway Testing', icon: 'tower' },
+      { name: 'TR-181 Data Models', icon: 'scroll' },
+      { name: 'Test Automation Frameworks', icon: 'shield' },
+      { name: 'Pytest', icon: 'shield' },
     ],
   },
 ];
@@ -410,7 +410,7 @@ export const footerLinks = [
   { name: 'Contact', href: '#contact' },
 ];
 
-export const footerDescription = 'Software Developer specializing in test automation and full-stack development. Building elegant solutions, one line of code at a time.';
+export const footerDescription = 'Software Developer specializing in full-stack development and cloud solutions. Building elegant solutions, one line of code at a time.';
 
 // ============================================================================
 // SEO & Meta Information
@@ -418,15 +418,15 @@ export const footerDescription = 'Software Developer specializing in test automa
 
 export const seoMetadata = {
   title: 'Ahmad Ibrahim | Software Developer',
-  description: 'Software Developer and Test Automation Engineer specializing in Python backend services, React/Next.js frontend, PostgreSQL, and Azure Cloud. Hands-on experience with agentic AI tools to accelerate development workflows. Based in Redmond, WA.',
+  description: 'Software Developer specializing in full-stack development with React/Next.js, Python backend services, PostgreSQL, and Azure Cloud. Hands-on experience with agentic AI tools to accelerate development workflows. Based in Redmond, WA.',
   keywords: [
     'Software Developer',
-    'Test Automation Engineer',
-    'Python Developer',
+    'Full-Stack Developer',
     'React Developer',
+    'Python Developer',
     'TypeScript',
     'Azure Cloud',
-    'Full-Stack Developer',
+    'Next.js Developer',
     'AI Development',
     'Agentic AI',
     'Claude AI',
