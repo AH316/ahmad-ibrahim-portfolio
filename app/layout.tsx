@@ -3,6 +3,7 @@ import { Cinzel, Inter } from "next/font/google";
 import "./globals.css";
 import { seoMetadata, personalInfo } from "@/lib/content";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -118,6 +119,7 @@ export default function RootLayout({
         className={`${cinzel.variable} ${inter.variable} font-inter antialiased bg-gondor-dark text-gondor-silver overflow-x-hidden`}
       >
         {children}
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
