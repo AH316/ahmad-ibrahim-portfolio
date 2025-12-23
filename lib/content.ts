@@ -114,7 +114,7 @@ export const personalInfo: PersonalInfo = {
     journey: [
       'My journey in software development began in Egypt, where I started my computer science coursework. I continued my studies in Oman and earned my B.Sc in Computer Science & Information Technology from the Open University (United Kingdom) in 2020. This international educational foundation led me to Seattle, Washington, where I\'ve grown from network administration to software engineering.',
       'Starting as a Network & Systems Administrator at MAPS, I discovered my passion for automation and testing. This led me to Denali Advanced Integration as an IT Systems Engineer, and eventually to Intellica Inc. as a Software Engineer, where I specialized in gateway testing and API development.',
-      'During my time at Intellica (January - September 2025), I also completed a part-time remote internship at Sistahology (April - August 2025), building a full-stack journaling application with React, TypeScript, Supabase, and Playwright. I have hands-on experience leveraging agentic AI tools to accelerate development workflows, automate testing, and improve project quality.',
+      'During my time at Intellica (January - September 2025), I also completed a part-time remote project at Sistahology (April - August 2025), building a full-stack journaling application with React, TypeScript, Supabase, and Playwright. I have hands-on experience leveraging agentic AI tools to accelerate development workflows, automate testing, and improve project quality.',
     ],
   },
   location: 'Redmond, WA',
@@ -170,7 +170,7 @@ export const funFact = 'When I\'m not coding, you\'ll find me exploring the rich
 export const education: Education = {
   degrees: [
     {
-      title: 'B.A. Coursework in Advanced Computer Science and AI Systems',
+      title: 'Continuing Education in Advanced Specialization in AI Systems',
       honor: 'In Progress',
       institution: 'Bellevue College',
       location: 'Bellevue, WA',
@@ -181,7 +181,7 @@ export const education: Education = {
       title: 'B.Sc Computer Science & Information Technology',
       honor: '2nd Class Honours',
       institution: 'Open University',
-      location: 'United Kingdom',
+      location: 'Milton Keynes, United Kingdom',
       year: '2020',
       coursework: [
         'Data Structures & Algorithms',
@@ -231,7 +231,7 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    title: 'Software Engineering Internship (Remote | Part-time)',
+    title: 'Software Engineering Full-Stack Project (Remote)',
     company: 'Skillspire | Sistahology',
     location: 'Seattle, WA',
     period: 'April 2025 – August 2025',
@@ -336,16 +336,24 @@ export const additionalSkills: string[] = [
 
 export const projects: Project[] = [
   {
+    title: 'DreamPack B2B Catalogue',
+    description: 'A full-stack e-commerce catalogue for a B2B packaging supplier featuring product management, category browsing, shopping cart with quote requests, and a custom admin CMS with NextAuth.js authentication.',
+    technologies: ['Next.js 16', 'Drizzle ORM', 'PostgreSQL', 'NextAuth.js', 'TypeScript', 'Tailwind CSS'],
+    github: 'https://github.com/AH316/dreampack',
+    demo: 'https://dreampack.vercel.app',
+    image: '/images/projects/dreampack.png',
+  },
+  {
     title: 'Sistahology Journaling App',
     description: 'A full-stack journaling application built for women\'s wellness, featuring user authentication, real-time data sync, and comprehensive end-to-end testing. Implemented secure CRUD operations with Row Level Security.',
     technologies: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Playwright', 'TailwindCSS'],
     github: 'https://github.com/AH316',
-    demo: null,
+    demo: 'https://sistahologycom.vercel.app/',
     image: '/images/projects/sistahology.jpg',
   },
   {
     title: 'TR-181 Data Model Converter',
-    description: 'Developed a conversion tool for transforming TR-181 data model specifications into executable Python code. Streamlined the testing process by automatically generating test cases from data model definitions.',
+    description: 'Developed a conversion tool for transforming TR-181 data model specifications into Excel format using a Python script. Streamlined the testing process by automatically generating test cases from data model definitions.',
     technologies: ['Python', 'XML Parsing', 'Data Modeling', 'Automation'],
     github: 'https://github.com/AH316',
     demo: null,
